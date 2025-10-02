@@ -26,9 +26,13 @@ const timelineExercices = () => {
     const tl2 = gsap.timeline();
 
     tl2
-      .to("#js-timeline-2", { scale: 1.1, duration: 1 })
-      .to("#js-timeline-2", { rotation: 180, duration: 0.8 })
-      .to("#js-timeline-2", { x: 0, rotation: 0, duration: 1.2 });
+      .to(".box-2", { scale: 1.5, duration: 1 })
+      .to(".box-2", { background: "red", duration: 0.5 }, "-=0.3")
+      .to(".box-2", {
+        scale: 1,
+        // background: "linear-gradient(325deg, #a855f7 0%, #db2777 100%)",
+        duration: 0.8,
+      });
     /* -----------------------
     Exercice 3
    -----------------------
@@ -37,6 +41,19 @@ const timelineExercices = () => {
     2. Label "milieu" - Rotation de 360° (1s)
     3. Animation supplémentaire qui démarre au "milieu" + 0.5s : opacity de 1 à 0.3 puis retour à 1 (1s)
    ----------------------- */
+    const tl3 = gsap.timeline();
+
+    tl3
+      .addLabel("start")
+      .to("#js-timeline-3", { x: 100, duration: 0.8 })
+      .addLabel("middle")
+      .to("#js-timeline-3", { rotation: 360, duration: 1 })
+      .fromTo(
+        "#js-timeline-3",
+        { opacity: 1, opacity: 0.3, duration: 1 },
+        { opacity: 1, duration: 1 },
+        "middle+=0.5"
+      );
   }
 };
 

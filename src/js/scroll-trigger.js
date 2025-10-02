@@ -1,4 +1,7 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const scrollTriggerFunc = () => {
   if (document.querySelector("#exercice-scroll-trigger")) {
@@ -22,6 +25,32 @@ const scrollTriggerFunc = () => {
     [3] est en haut de l'écran (son bord haut atteint
     le bord haut du viewport)
    ----------------------- */
+    // Animation déclenchée par le scroll avec des marqueurs pour débugger
+    gsap.to(".box-1", {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".box-1", // Élément qui déclenche l'animation
+        start: "bottom bottom", // Quand le top de .box touche le bottom du viewport
+        scrub: true, // Animation liée au scroll
+      },
+    });
+    gsap.to(".box-2", {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".box-2", // Élément qui déclenche l'animation
+        start: "center center", // Quand le top de .box touche le bottom du viewport
+        scrub: true, // Animation liée au scroll
+      },
+    });
+    gsap.to(".box-3", {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".box-3", // Élément qui déclenche l'animation
+        start: "top top", // Quand le top de .box touche le bottom du viewport
+        scrub: true, // Animation liée au scroll
+      },
+    });
+
     /* -----------------------
     Exercice 2
    -----------------------
@@ -30,6 +59,15 @@ const scrollTriggerFunc = () => {
     [4] atteint 60% de l'écran (son bord haut
     atteint 60% du viewport)
    ----------------------- */
+    gsap.to(".box-4", {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".box-4", // Élément qui déclenche l'animation
+        start: "top 60%", // Quand le top de .box touche le bottom du viewport
+        scrub: true, // Animation liée au scroll
+        // markers: true,
+      },
+    });
     /* -----------------------
     Exercice 3
    -----------------------
