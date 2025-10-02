@@ -1,3 +1,5 @@
+import gsap from "gsap";
+
 const timelineExercices = () => {
   if (document.querySelector("#exercice-timeline")) {
     /* -----------------------
@@ -8,6 +10,11 @@ const timelineExercices = () => {
     2. Rotation de 180° (0.8s)
     3. Retour à la position et rotation d'origine (1.2s)
    ----------------------- */
+    const tl = gsap.timeline();
+
+    tl.to("#js-timeline-1", { x: 150, duration: 1 })
+      .to("#js-timeline-1", { rotation: 180, duration: 0.8 })
+      .to("#js-timeline-1", { x: 0, rotation: 0, duration: 1.2 });
     /* -----------------------
     Exercice 2
    -----------------------
@@ -16,6 +23,12 @@ const timelineExercices = () => {
     2. Changement de couleur vers le rouge (0.5s) - démarre 0.3s avant la fin de l'animation précédente
     3. Retour à la taille et couleur d'origine (0.8s)
    ----------------------- */
+    const tl2 = gsap.timeline();
+
+    tl2
+      .to("#js-timeline-2", { scale: 1.1, duration: 1 })
+      .to("#js-timeline-2", { rotation: 180, duration: 0.8 })
+      .to("#js-timeline-2", { x: 0, rotation: 0, duration: 1.2 });
     /* -----------------------
     Exercice 3
    -----------------------

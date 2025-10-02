@@ -74,11 +74,9 @@ const animations = () => {
     ET SIMULTANEMENT changer l'item 6 d'échelle (75%)
     durant 5 secondes
    ----------------------- */
-    tl.to(
-      "#js-exercise-6",
-      { y: 100, duration: 3, scale: 0.75, duration: 5 },
-      { scale: 0.75, duration: 5 }
-    );
+    const tl2 = gsap.timeline();
+
+    tl2.to("#js-exercise-6", { y: 100, duration: 3, scale: 0.75, duration: 5 });
     /* -----------------------
     Exercice 7 (repeat + yoyo)
    -----------------------
@@ -87,15 +85,29 @@ const animations = () => {
     avec un easing elastic.out
     et répéter ce mouvement à l'infini
    ----------------------- */
-    var yoyo = myAnimation.yoyo();
+    gsap.from("#js-exercise-7", {
+      rotation: 135,
+      ease: "elastic",
+      duration: 2,
+      repeat: -1,
+    });
 
-    myAnimation.yoyo(true);
     /* -----------------------
     Exercice 8
    -----------------------
     Réaliser une animation libre
     lorsque le bouton est cliqué
    ----------------------- */
+    const btn = document.querySelector("button");
+
+    btn.addEventListener("click", function () {
+      gsap.from("#js-exercise-8", {
+        scale: 0.95,
+        background: "linear-gradient(325deg, #ff329cff 0%, #f19c63ff 100%)",
+        ease: "slow(0.7,0.7,false)",
+        duration: 3,
+      });
+    });
   }
 };
 
